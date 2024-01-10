@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /* Sidebar icon */
+  --sidebar-icon-background-open: #fff;
+  --sidebar-icon-color-open: #4441f2;
+  --sidebar-icon-background: #4441f2;
+  --sidebar-icon-color: #fff;
+
+  /* Sidebar */
+  --sidebar-background-color-with-opacity-2: #20202022;
+  --sidebar-background-color: #4441f2; 
+  --sidebar-color-text: #4441f2;
+  --sidebar-color: #fff;
+
+  /* Body */
+  --body-background-color: #fff;
+  --body-color: #202020;
+}
+
+.dark {
+  /* Sidebar icon */
+  --sidebar-icon-background-open: #fff;
+  --sidebar-icon-color-open: #191919;
+  --sidebar-icon-background: #fff;
+  --sidebar-icon-color: #191919;
+
+  /* Sidebar */
+  --sidebar-background-color-with-opacity: #20202022;
+  --sidebar-background-color: #191919;
+  --sidebar-color-text: #fff;
+  --sidebar-color: #fff;
+
+  /* Body */
+  --body-background-color: #202020;
+  --body-color: #fff;
+}
+
+
+body {
+  background-color: var(--body-background-color);
+  color: var(--body-color);
+}
+
