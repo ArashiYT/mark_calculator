@@ -14,8 +14,8 @@ import "../styles/sidebar.css";
 export default function SidebarSwitcher() {
     const [openSwitcher, setOpenSwitcher] = useState(false)
     const { theme, switchTheme } = useContext(ThemeContext)
+    const MainContainer = useRef<HTMLDivElement>(null)
     const page = useAppSelector(state => state.page)
-    const MainContainer = useRef<HTMLElement>(null)
     const [getMarks, errorMessage] = useMarks()
     const dispatch = useAppDispatch()
 
@@ -33,6 +33,7 @@ export default function SidebarSwitcher() {
     useEffect(() => {
         //Hiding Sidebar when you leave sidebar
         const clickEvent = (e: MouseEvent) => e.target === MainContainer.current && setOpenSwitcher(false)
+        
         window.addEventListener("click", clickEvent)
 
         //add marks to Redux
@@ -70,13 +71,11 @@ export default function SidebarSwitcher() {
                     </div>
                 </div>
             </aside>
-
-            <main className={`content  ${openSwitcher && "sidebar_background"}`} ref={MainContainer}> {
+            {openSwitcher && <div className="sidebar_background" ref={MainContainer}></div>}
+            <main className={`content  ${openSwitcher && "padding"}`}> {
                     page.errorMessage != "" ? <Error error={page.errorMessage}/> :
                     page.loading ? <Loading /> : 
-                    <div className={`${openSwitcher && "hidden"}`}>
-                        <Outlet />
-                    </div> 
+                    <Outlet /> 
             } </main>
         </section>
     )

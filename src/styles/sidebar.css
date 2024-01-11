@@ -2,7 +2,7 @@
     position: absolute;
     height: 50px;
     width: 50px;
-    z-index: 2;
+    z-index: 6;
     left: 20px;
     top: 10px;
 }
@@ -48,6 +48,7 @@
     display: flex;
     height: 75px;
     right: 40px;
+    z-index: 5;
 }
 
 .sidebar_content {
@@ -57,6 +58,7 @@
     height: 100vh;
     left: -300px;
     width: 300px;
+    z-index: 5;
 }
 
 .sidebar_content.open {
@@ -88,12 +90,18 @@
    translate: 200px
 }
 
+.padding {
+    padding-left: 2rem;
+}
+
 .sidebar_background {
     background-color: var(--sidebar-background-color-with-opacity);
-    padding-left: 2rem;
     position: fixed;
     height: 100%;
-    z-index: 3;
+    width: 100%;
+    z-index: 4;
+    right: 0;
+    top: 0;
 }
 
 .sidebar_data {

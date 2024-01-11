@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const mark_reducer = createSlice({
-    initialState: [{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"}] as TMark[],
+    initialState: [{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"},{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"},{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"},{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"},{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"},{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"},{name: "Math", number: 5, weight: 3, uuid: "efedfrefdfrefdfe"}] as TMark[],
     name: "mark",
     reducers: {
         addMark: (state, payload: PayloadAction<TMark>) => {

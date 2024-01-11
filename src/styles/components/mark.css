@@ -1,6 +1,51 @@
 .mark_container {
+    border: 2px solid var(--mark-border-color); 
     justify-content: space-between;
     flex-direction: row-reverse;
+    padding-inline: 2rem 0;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    align-items: center;
+    font-weight: 700;
     display: flex;
-    width: 100%;
+    height: 70px;
+    width: 95%;
+}
+
+.mark_close {
+    background-color: var(--mark-close-background-color);
+    border-left: 2px solid var(--mark-border-color);
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 13px;
+    color: var(--mark-color);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    display: flex;
+    height: 100%;
+    width: 20%;
+}
+
+.mark_close:is(:focus-visible, :hover) {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.mark_content {
+    font-size: 1.05rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.mark_mark {
+    display: flex;
+    gap: 0.1rem;
+}
+
+.mark_mark div:first-child {
+    font-weight: 400;
+}
+
+.mark_container:last-child {
+    margin-bottom: 0;
 }

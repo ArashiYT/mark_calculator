@@ -15,9 +15,50 @@
 }
 
 .home_mark {
-    justify-content: center;
-    flex-direction: column;
     margin-top: 0.5rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 60%;
+    width: 95%;
+    gap:1rem;
+}
+
+.home_mark::-webkit-scrollbar {
+    width: 20px;
+}
+
+.home_mark::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--sidebar-color-text); 
+}
+
+.home_mark::-webkit-scrollbar-thumb:hover {
+    background: var(--home-color-hover); 
+    cursor: pointer;
+}
+
+.home_link {
+    margin-top: 1rem;
+    flex-direction: column;
     display: flex;
-    width: 80%
+    width: 100%;
+    gap: 3rem;
+}
+
+.home_link * {
+    border: 2px solid var(--sidebar-color-text);
+    color: var(--sidebar-color-text);
+    justify-content:center;
+    text-decoration: none;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    height: 120px;
+    display: flex;
+    width: 100%;
+}
+
+.home_link *:is(:hover, :focus-visible) {
+    background-color:var(--sidebar-color-text);
+    color: var(--home-color-text-hover);
 }

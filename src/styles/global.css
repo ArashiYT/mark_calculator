@@ -8,6 +8,16 @@
 }
 
 :root {
+  /* Mark */
+  --mark-close-background-color: #e52121;
+  --mark-border-color: #4441f2;
+  --mark-color: #fff;
+
+  /* Home */
+  --home-color-text-hover: #fff;
+  --home-color-hover: #2a27db;
+  --home-color: #fff;
+
   /* Sidebar icon */
   --sidebar-icon-background-open: #fff;
   --sidebar-icon-color-open: #4441f2;
@@ -26,6 +36,15 @@
 }
 
 .dark {
+  /* Mark */
+  --mark-close-background-color: #ac1717;
+  --mark-border-color: #fff;
+  --mark-color: #fff;
+
+  /* Home */
+  --home-color-text-hover: #202020;
+  --home-color-hover: #d5d5d5;
+
   /* Sidebar icon */
   --sidebar-icon-background-open: #fff;
   --sidebar-icon-color-open: #191919;
@@ -33,7 +52,7 @@
   --sidebar-icon-color: #191919;
 
   /* Sidebar */
-  --sidebar-background-color-with-opacity: #20202022;
+  --sidebar-background-color-with-opacity: #fff2;
   --sidebar-background-color: #191919;
   --sidebar-color-text: #fff;
   --sidebar-color: #fff;
@@ -45,8 +64,9 @@
 
 
 body {
-  overflow: hidden;
   background-color: var(--body-background-color);
   color: var(--body-color);
+  color-scheme: dark;
+  overflow: hidden;
 }
 
