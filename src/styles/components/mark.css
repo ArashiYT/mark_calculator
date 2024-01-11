@@ -1,0 +1,6 @@
+.mark_container {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    display: flex;
+    width: 100%;
+}

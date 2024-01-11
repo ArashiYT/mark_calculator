@@ -15,7 +15,7 @@
   --sidebar-icon-color: #fff;
 
   /* Sidebar */
-  --sidebar-background-color-with-opacity-2: #20202022;
+  --sidebar-background-color-with-opacity: #20202022;
   --sidebar-background-color: #4441f2; 
   --sidebar-color-text: #4441f2;
   --sidebar-color: #fff;
@@ -45,6 +45,7 @@
 
 
 body {
+  overflow: hidden;
   background-color: var(--body-background-color);
   color: var(--body-color);
 }

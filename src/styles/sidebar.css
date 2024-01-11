@@ -76,7 +76,8 @@
 
 .content {
     color: var(--sidebar-color-text);
-    width: calc(100% - 120px);
+    width: calc(100% - 100px);
+    transition: translate .2s;
     padding-block: 1rem;
     position: absolute;
     right: 0;
@@ -84,7 +85,7 @@
 }
 
 :has(.open) .content {
-    width: calc(100% - 300px);
+   translate: 200px
 }
 
 .sidebar_background {
@@ -134,4 +135,8 @@
     background: transparent;
     font-size: inherit;
     width: 100%;
+}
+
+.hidden {
+    z-index: -3;
 }

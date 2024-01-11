@@ -1,0 +1,23 @@
+.home_container {
+    margin-top: 0.5rem
+}
+
+
+.home_flex {
+    justify-content: space-between;
+    margin: 5rem auto;
+    display: flex;
+    width: 80%;
+}
+
+.home_flex > div {
+    width: 40%
+}
+
+.home_mark {
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    display: flex;
+    width: 80%
+}
