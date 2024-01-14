@@ -47,9 +47,11 @@
 
 .home_link * {
     border: 2px solid var(--sidebar-color-text);
-    color: var(--sidebar-color-text);
+    background-color: var(--sidebar-color-text);
+    color: var(--home-color-text-hover);
     justify-content:center;
     text-decoration: none;
+    border-radius: 10px;
     align-items: center;
     font-size: 1.3rem;
     font-weight: 700;
@@ -59,6 +61,6 @@
 }
 
 .home_link *:is(:hover, :focus-visible) {
-    background-color:var(--sidebar-color-text);
-    color: var(--home-color-text-hover);
+    background-color: transparent;
+    color: var(--home-color-text);
 }

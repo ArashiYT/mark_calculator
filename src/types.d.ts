@@ -4,3 +4,7 @@ type TMark = {
     name: string, 
     uuid: string, 
 }
+
+type TChildren = {
+    children: React.ReactNode,
+}

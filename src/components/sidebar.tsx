@@ -8,8 +8,8 @@ import { Link, Outlet } from "react-router-dom";
 import useMarks from "../hooks/useMarks";
 import { LINKS } from "../data/sidebar"
 import Loading from "./loading";
-import Error from "./error"
 import "../styles/sidebar.css";
+import Error from "./error"
 
 export default function SidebarSwitcher() {
     const [openSwitcher, setOpenSwitcher] = useState(false)

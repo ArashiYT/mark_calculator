@@ -1,5 +1,4 @@
 import { useState, createContext, useEffect } from "react";
-import { TChildren } from "../types/react";
 
 export type TThemeContext = { switchTheme: () => void, theme: TThemeMode }
 export type TThemeMode = "dark" | "light"

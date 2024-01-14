@@ -1,4 +1,5 @@
 import ThemeProvider from './contexts/Theme'
+import ModalProvider from './contexts/Modal'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import store from "./libs/store"
@@ -10,7 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider>
-        <App />
+        <ModalProvider>
+          <App />
+        </ModalProvider>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
