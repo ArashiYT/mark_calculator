@@ -4,7 +4,8 @@ import "../../styles/routes/home.css";
 import { Link } from "react-router-dom";
 
 export function HomePage() {
-    const marks = useAppSelector(state => state.mark)
+    const { marks } = useAppSelector(state => state.mark)
+    console.log(marks)
 
     return (
         <div className="home_container">

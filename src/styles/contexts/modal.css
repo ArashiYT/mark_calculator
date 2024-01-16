@@ -1,0 +1,71 @@
+.modal_container {
+    background: var(--sidebar-background-color-with-opacity);
+    position: fixed;
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    top: 0;
+}
+
+.modal_open {
+    display: block;
+}
+
+.modal_close {
+    border: 2px solid var(--sidebar-color-text);
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    font-size: inherit;
+    border-radius: 50%;
+    outline: none;
+    display: flex;
+    height: 50px;
+    width: 50px;
+}
+
+.modal_close:is(:focus-visible, :hover) {
+    background-color: var(--sidebar-color-text);
+    border-color: var(--body-background-color);
+    color: var(--body-background-color);
+    cursor: pointer;
+}
+
+.modal_content {
+    background: var(--body-background-color);
+    animation: fadeIn 0.2s forwards;
+    color: var(--sidebar-color-text);
+    translate: -50% -50%;
+    border-radius: 15px;
+    position: absolute;
+    min-height: 500px;
+    height: auto;
+    width: 60%;
+    left: 50%;
+    top: 50%;
+}
+
+.modal_header {
+    border-bottom: 2px solid var(--sidebar-color-text);
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding-inline: 3rem;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 100px;
+    display: flex;
+}
+
+.modal_body {
+    height: calc(100% - 100px);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}

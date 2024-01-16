@@ -1,0 +1,26 @@
+.confirm_buttons {
+    justify-content: space-between;
+    margin-inline: auto;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 80%; 
+}
+
+.confirm_buttons button {
+    border: 2px solid var(--sidebar-color-text);
+    color: var(--sidebar-color-text);
+    background-color: transparent;
+    font-size: 1.3rem;
+    font-weight: 700;
+    outline: none;
+    height: 70px;
+    width: 45%;
+}
+
+.confirm_buttons button:is(:focus-visible, :hover) {
+    background-color: var(--sidebar-color-text);
+    border-color: var(--body-background-color);
+    color: var(--body-background-color);
+    cursor: pointer;
+}

@@ -1,17 +1,35 @@
+import { removeMark } from "../../utils/mark_reducer"
+import { ModalContext } from "../../contexts/Modal"
+import { useAppDispatch } from "../../hooks/redux"
+import Confirm from "../components/confirm"
 import { FaXmark } from "react-icons/fa6"
 import "../../styles/components/mark.css"
+import { useContext } from "react"
 
 export type TMarkPageProps = { mark: TMark }
-export default function MarkPage({mark}: TMarkPageProps) {
+export default function MarkPage({ mark }: TMarkPageProps) {
+    const { switchModal } = useContext(ModalContext)
+    const dispatch = useAppDispatch()
+    
     const remove = (uuid: string) => {
-        console.log(uuid)
+        const callback = (value: boolean) => {
+            switchModal("reset")
+
+            if(!value) return
+            dispatch(removeMark({ uuid }))
+        } 
+
+        switchModal({
+            body: <Confirm callback={callback} />,
+            title: "Are you sure to delete this mark?",
+        })
     }
 
     return (
         <div className="mark_container">
-            <div className="mark_close" onClick={() => remove(mark.uuid)}>
+            <button className="mark_close" onClick={() => remove(mark.uuid)}>
                 <FaXmark />
-            </div>
+            </button>
             <div className="mark_content">
                 <div>{mark.name}:</div>
                 <div className="mark_mark">

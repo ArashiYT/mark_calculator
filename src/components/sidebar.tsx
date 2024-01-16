@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect, useContext, useMemo } from "react";
 import { useAppSelector, useAppDispatch } from "../hooks/redux";
 import { setErrorMessage, setLoading } from "../utils/page_reducer";
 import { FaXmark, FaBars } from "react-icons/fa6";
@@ -19,10 +19,13 @@ export default function SidebarSwitcher() {
     const [getMarks, errorMessage] = useMarks()
     const dispatch = useAppDispatch()
 
+    const isOpen = useMemo(() => -1 * Number(!openSwitcher), [openSwitcher]);
+
     const Links = LINKS.map((link, key) => (
         <Link 
             onClick={() => setOpenSwitcher(false)} 
             className="sidebar_link"
+            tabIndex={isOpen}
             to={link.href}
             key={key} 
         >
@@ -65,7 +68,12 @@ export default function SidebarSwitcher() {
                         <div className="sidebar_data">
                             { Links }
                             <div className="sidebar_theme">
-                                <button className="sidebar_link sidebar_button" onClick={switchTheme}>Theme: {theme}</button>
+                                <button tabIndex={isOpen} 
+                                    className="sidebar_link sidebar_button" 
+                                    onClick={switchTheme}
+                                >
+                                    Theme: {theme}
+                                </button>
                             </div>
                         </div>
                     </div>
