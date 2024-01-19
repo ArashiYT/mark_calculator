@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Home, Mark, Calculator, NotFound } from "./routes"
+import { Home, Mark, Calculator, NotFound } from "../routes"
 import SidebarSwitcher from "./sidebar"
 
 export default function IndexPage() {

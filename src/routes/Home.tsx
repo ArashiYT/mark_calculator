@@ -1,9 +1,8 @@
-import "../../styles/routes/home.css";
+import "../styles/routes/home.css";
 import { Link } from "react-router-dom";
-import MarksComponent from "../components/marks";
+import MarksComponent from "../components/Marks/marks";
 
 export function HomePage() {
-
     return (
         <div className="home_container">
             <h1>Welcome to the Calculator Mark!</h1>

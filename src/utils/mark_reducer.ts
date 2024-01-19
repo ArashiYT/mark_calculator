@@ -1,20 +1,17 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import cloneDeep from "clone-deep"
 
 const mark_reducer = createSlice({
     initialState: {
-        marks: [{uuid: "XD", weight: 3, number: 5, name:"Math"}] as TMark[] 
+        marks: [] as TMark[] 
     },
     name: "mark",
     reducers: {
-        addMark: (state, payload: PayloadAction<TMark>) => {
-            state.marks = [...state.marks, payload.payload]
-        },
-
-        removeMark: (state, payload: PayloadAction<Pick<TMark, "uuid">> ) => {
-            state.marks = state.marks.filter(item => item.uuid !== payload.payload.uuid)
+        setMark: (state, payload: PayloadAction<TMark[]>) => {
+            state.marks = cloneDeep(payload.payload)
         }
     },
 })
 
-export const { addMark, removeMark } = mark_reducer.actions 
+export const { setMark } = mark_reducer.actions 
 export default mark_reducer.reducer

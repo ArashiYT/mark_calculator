@@ -1,0 +1,121 @@
+.calc_container {
+    width: 100%;
+}
+
+.calc_container h1 {
+    letter-spacing: 0.1rem;
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+.calc_flex {
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+    height: 90vh;
+    display: flex;
+    width: 90%;
+}
+
+.calc_marks {
+    width: 35%;
+}
+
+.calc_marks_content {
+    height: 400px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.calc_marks_content::-webkit-scrollbar {
+    width: 20px;
+}
+
+.calc_marks_content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--sidebar-color-text); 
+}
+
+.calc_marks_content::-webkit-scrollbar-thumb:hover {
+    background: var(--home-color-hover); 
+    cursor: pointer;
+}
+
+.calc_content {
+    border: 2px solid var(--sidebar-color-text);
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    align-items: center;
+    transition: .2s;
+    display: flex;
+    height: 400px;
+    width: 35%;
+    gap: 2rem
+}
+
+.calc_button {
+    border: 2px solid var(--sidebar-color-text);
+    background: var(--sidebar-color-text);
+    color: var(--body-background-color);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: .2s;
+    outline: none;
+    height: 70px;
+    width: 70%;
+}
+
+.calc_button:not(:disabled):is(:hover, :focus-visible) {
+    border-color: var(--sidebar-color-text);
+    color: var(--sidebar-color-text);
+    background: var(--body-background-color);
+    cursor: pointer;
+}
+
+:has(.calc_button:not(:disabled):is(:hover, :focus-visible)) .calc_content {
+    background: var(--sidebar-color-text);
+    color: var(--body-background-color)
+}
+
+.calc_block {
+    opacity: 0.7;
+}
+
+.calc_btn_container {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+.calc_hidden {
+    animation: fadeOut 0.5s forwards ease;
+}
+
+
+@keyframes fadeOut {
+    0% { opacity: 1 }
+    99% { opacity: 0 }
+    100% { opacity: 0; display: none; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0 }
+    99% { opacity: 1 }
+    100% { opacity: 1 }
+}
+
+
+.calc_res {
+    font-size: 1.5rem;
+    display: none;
+}
+
+.calc_res.calc_open {
+    animation: fadeIn 0.5s forwards ease;
+    display: block;
+}

@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect, useContext, useMemo } from "react";
 import { useAppSelector, useAppDispatch } from "../hooks/redux";
 import { setErrorMessage, setLoading } from "../utils/page_reducer";
+import { setStatusBtn, setStatusCalc } from "../utils/calc_reducer";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { ThemeContext } from "../contexts/Theme";
-import { addMark } from "../utils/mark_reducer";
+import { setMark } from "../utils/mark_reducer";
 import { Link, Outlet } from "react-router-dom";
 import useMarks from "../hooks/useMarks";
 import { LINKS } from "../data/sidebar"
@@ -21,9 +22,18 @@ export default function SidebarSwitcher() {
 
     const isOpen = useMemo(() => -1 * Number(!openSwitcher), [openSwitcher]);
 
+    const LinkClick = (path: string) => {
+        if(!location.href.includes(path)) {
+            dispatch(setStatusCalc(false))
+            dispatch(setStatusBtn(false))
+        }
+
+        setOpenSwitcher(false)
+    }
+
     const Links = LINKS.map((link, key) => (
         <Link 
-            onClick={() => setOpenSwitcher(false)} 
+            onClick={() => LinkClick(link.href)} 
             className="sidebar_link"
             tabIndex={isOpen}
             to={link.href}
@@ -42,11 +52,8 @@ export default function SidebarSwitcher() {
         //add marks to Redux
         const marks = getMarks()
         if(errorMessage != '') dispatch(setErrorMessage(errorMessage))
-
-        for(const mark of (marks ?? [] as TMark[])) {
-            dispatch(addMark(mark))
-        }
-
+        
+        dispatch(setMark(marks ?? []))
         dispatch(setLoading(false))
         return () => {
             window.removeEventListener("click", clickEvent)
