@@ -33,6 +33,9 @@
   /* Body */
   --body-background-color: #fff;
   --body-color: #202020;
+
+  /* Loading */
+  --loading-icon-color: #4441f2;
 }
 
 .dark {
@@ -60,6 +63,9 @@
   /* Body */
   --body-background-color: #202020;
   --body-color: #fff;
+
+  /* Loading */
+  --loading-icon-color: #fff;
 }
 
 

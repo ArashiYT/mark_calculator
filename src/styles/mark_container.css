@@ -1,0 +1,31 @@
+.markContainer_container {
+    justify-content: space-between ;
+    flex-direction: row-reverse;
+    align-items: center;
+    display: flex;
+    width: 90%;
+}
+
+.markContainer_container > div {
+    width: 35%;
+}
+
+.markContainer_content {
+    height: 400px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.markContainer_content::-webkit-scrollbar {
+    width: 20px;
+}
+
+.markContainer_content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--sidebar-color-text); 
+}
+
+.markContainer  _content::-webkit-scrollbar-thumb:hover {
+    background: var(--home-color-hover); 
+    cursor: pointer;
+}

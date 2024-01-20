@@ -13,7 +13,7 @@ export function HomePage() {
                         <Link to="/calc">
                             You want calculate? Click here
                         </Link>
-                        <Link to="/add">
+                        <Link to="/Mark">
                             Yo want add markers? Click here
                         </Link>
                     </div>

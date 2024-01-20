@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-export default function useMarks() {
-    const [errorMessage, setErrorMessage] = useState("")
-    
+export default function useMarks() { 
     const isValidMarks = (data: unknown): TMark[] | null => {
         if(!Array.isArray(data)) return null
         
@@ -29,23 +25,24 @@ export default function useMarks() {
         return data;
     }
     
-    //TODO: add encript
     const getMarks = () => {
         try {
             const dataFromLocalStorage = localStorage.getItem("marks")
-            if(dataFromLocalStorage == null) return null
+            if(dataFromLocalStorage == null) return []
 
+            // TODO: add decript
             const marks = isValidMarks(JSON.parse(dataFromLocalStorage))
-            if(!marks) throw new Error("Invalid marks")
-
-            return marks;
+            
+            if(marks == null) throw new Error();
+            return marks
         }
 
         catch(err) {
-            setErrorMessage((err as Error).message)
-            return null 
+            // TODO: add encript
+            localStorage.setItem("marks", JSON.stringify([]))
+            return []
         }
     }
 
-    return [ getMarks, errorMessage ] as const
+    return getMarks
 }

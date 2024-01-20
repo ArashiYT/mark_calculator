@@ -14,31 +14,7 @@
     margin-inline: auto;
     height: 90vh;
     display: flex;
-    width: 90%;
-}
-
-.calc_marks {
-    width: 35%;
-}
-
-.calc_marks_content {
-    height: 400px;
-    overflow-y: auto;
     width: 100%;
-}
-
-.calc_marks_content::-webkit-scrollbar {
-    width: 20px;
-}
-
-.calc_marks_content::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: var(--sidebar-color-text); 
-}
-
-.calc_marks_content::-webkit-scrollbar-thumb:hover {
-    background: var(--home-color-hover); 
-    cursor: pointer;
 }
 
 .calc_content {
@@ -50,7 +26,7 @@
     transition: .2s;
     display: flex;
     height: 400px;
-    width: 35%;
+    width: 100%;
     gap: 2rem
 }
 
@@ -96,16 +72,18 @@
     animation: fadeOut 0.5s forwards ease;
 }
 
+.calc_nothing {
+    display: none;
+}
+
 
 @keyframes fadeOut {
-    0% { opacity: 1 }
-    99% { opacity: 0 }
-    100% { opacity: 0; display: none; }
+    0% { opacity: 1; }
+    100% { opacity: 0;}
 }
 
 @keyframes fadeIn {
     0% { opacity: 0 }
-    99% { opacity: 1 }
     100% { opacity: 1 }
 }
 

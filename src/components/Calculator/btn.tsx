@@ -9,7 +9,7 @@ import { useContext } from "react"
 
 
 export default function CalculatorBtn() {
-    const { button } = useAppSelector(state => state.calc)
+    const { button, calc } = useAppSelector(state => state.calc)
     const { marks } = useAppSelector(state => state.mark)
     const { switchModal } = useContext(ModalContext)
     const dispatch = useAppDispatch()
@@ -38,7 +38,7 @@ export default function CalculatorBtn() {
     }
 
     return (
-        <div className={`calc_btn_container ${button && "calc_hidden"}`}>
+        <div className={`calc_btn_container ${button && "calc_hidden"} ${calc && "calc_nothing"}`}>
             <h2>Calculate Marks</h2>
             <button className={`calc_button ${marks.length <= 0 && "calc_block"}`} disabled={marks.length <= 0 || button} onClick={calculate}>
                 Click to Calculate 

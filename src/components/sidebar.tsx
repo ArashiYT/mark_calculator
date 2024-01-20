@@ -1,26 +1,25 @@
 import { useState, useRef, useEffect, useContext, useMemo } from "react";
-import { useAppSelector, useAppDispatch } from "../hooks/redux";
-import { setErrorMessage, setLoading } from "../utils/page_reducer";
 import { setStatusBtn, setStatusCalc } from "../utils/calc_reducer";
+import { setLoading } from "../utils/page_reducer";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { ThemeContext } from "../contexts/Theme";
 import { setMark } from "../utils/mark_reducer";
 import { Link, Outlet } from "react-router-dom";
+import { useAppDispatch } from "../hooks/redux";
 import useMarks from "../hooks/useMarks";
 import { LINKS } from "../data/sidebar"
-import Loading from "./loading";
 import "../styles/sidebar.css";
-import Error from "./error"
 
 export default function SidebarSwitcher() {
     const [openSwitcher, setOpenSwitcher] = useState(false)
     const { theme, switchTheme } = useContext(ThemeContext)
     const MainContainer = useRef<HTMLDivElement>(null)
-    const page = useAppSelector(state => state.page)
-    const [getMarks, errorMessage] = useMarks()
     const dispatch = useAppDispatch()
+    const getMarks = useMarks()
 
-    const isOpen = useMemo(() => -1 * Number(!openSwitcher), [openSwitcher]);
+    const isOpen = useMemo(() => {
+        return -1 * Number(!openSwitcher)
+    }, [openSwitcher]);
 
     const LinkClick = (path: string) => {
         if(!location.href.includes(path)) {
@@ -39,22 +38,20 @@ export default function SidebarSwitcher() {
             to={link.href}
             key={key} 
         >
-            {link.name}
+            { link.name }
         </Link>
     ))
 
     useEffect(() => {
         //Hiding Sidebar when you leave sidebar
         const clickEvent = (e: MouseEvent) => e.target === MainContainer.current && setOpenSwitcher(false)
-        
         window.addEventListener("click", clickEvent)
 
         //add marks to Redux
         const marks = getMarks()
-        if(errorMessage != '') dispatch(setErrorMessage(errorMessage))
-        
-        dispatch(setMark(marks ?? []))
+        dispatch(setMark(marks))
         dispatch(setLoading(false))
+        
         return () => {
             window.removeEventListener("click", clickEvent)
         }
@@ -79,19 +76,17 @@ export default function SidebarSwitcher() {
                                     className="sidebar_link sidebar_button" 
                                     onClick={switchTheme}
                                 >
-                                    Theme: {theme}
+                                    Theme: { theme }
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </aside>
-            {openSwitcher && <div className="sidebar_background" ref={MainContainer}></div>}
-            <main className={`content  ${openSwitcher && "padding"}`}> {
-                    page.errorMessage != "" ? <Error error={page.errorMessage}/> :
-                    page.loading ? <Loading /> : 
-                    <Outlet /> 
-            } </main>
+            { openSwitcher && <div className="sidebar_background" ref={MainContainer}></div> }
+            <main className={`content  ${openSwitcher && "padding"}`}> 
+                <Outlet /> 
+             </main>
         </section>
     )
 }

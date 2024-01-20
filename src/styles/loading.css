@@ -1,0 +1,22 @@
+.loading_container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading_dot {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background: var(--loading-icon-color);
+    border-radius: 50%;
+    animation: fadeOut 1.5s linear infinite;
+    opacity: 0;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
