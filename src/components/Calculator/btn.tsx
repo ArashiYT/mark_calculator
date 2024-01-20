@@ -1,5 +1,6 @@
 import { setCalcResult, setStatusBtn, setStatusCalc } from "../../utils/calc_reducer"
 import { useAppDispatch, useAppSelector } from "../../hooks/redux"
+import styles from "../../styles/routes/calc.module.css"
 import Confirm from "../../components/Modal/confirm"
 import { ModalContext } from "../../contexts/Modal"
 import round from "../../helpers/round"
@@ -38,9 +39,13 @@ export default function CalculatorBtn() {
     }
 
     return (
-        <div className={`calc_btn_container ${button && "calc_hidden"} ${calc && "calc_nothing"}`}>
+        <div className={`${styles.calc_btn_container} ${button && styles.calc_hidden} ${calc && styles.calc_nothing}`}>
             <h2>Calculate Marks</h2>
-            <button className={`calc_button ${marks.length <= 0 && "calc_block"}`} disabled={marks.length <= 0 || button} onClick={calculate}>
+            <button 
+                className={`${styles.calc_button} ${marks.length <= 0 && styles.calc_block}`} 
+                disabled={marks.length <= 0 || button} 
+                onClick={calculate}
+            >
                 Click to Calculate 
             </button>
         </div>

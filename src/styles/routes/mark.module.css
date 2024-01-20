@@ -1,0 +1,88 @@
+.container {
+    width: 100%;
+}
+
+.container .space {
+    margin: 1rem;
+}
+
+.flex {
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+    display: flex;
+    height: 90vh;
+    width: 100%;
+}
+
+.content {
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    align-items: center;
+    transition: .2s;
+    display: flex;
+    height: 400px;
+    width: 100%;
+    gap: 2rem;
+}
+
+.content button {
+    border: 2px solid var(--sidebar-color-text);
+    background: var(--sidebar-color-text);
+    color: var(--body-background-color);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: 0.2s;
+    outline: none;
+    height: 70px;
+    width: 100%;
+}
+
+.content button:is(:hover, :focus-visible) {
+    color:var(--sidebar-color-text);
+    background: transparent;
+    cursor: pointer;
+} 
+
+.inputFull {
+    position: relative;
+    height: 70px;
+    width: 100%;
+}
+
+.inputFull input {
+    border: 2px solid var(--sidebar-color-text);
+    color: var(--sidebar-color-text);
+    background: transparent;
+    border-radius: 15px;
+    font-weight: 700;
+    padding: 0 13px;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+.inputFull label {
+    letter-spacing: 0.1rem;
+    position: absolute;
+    transition: 0.2s;
+    translate: 0 -50%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    left: 2rem;
+    top: 50%;
+}
+
+.inputFull input:is(:focus, :valid) ~ label {
+    translate: -2rem -4rem;
+}
+
+.inputFull:has(input:is(:valid, :focus)) {
+    margin-top: 1.5rem;
+}
+
+.inputFull:has(input:is(:valid, :focus)):first-child {
+    margin-top: 0;
+}
