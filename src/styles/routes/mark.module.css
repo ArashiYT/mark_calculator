@@ -40,11 +40,14 @@
     width: 100%;
 }
 
-.content button:is(:hover, :focus-visible) {
-    color:var(--sidebar-color-text);
-    background: transparent;
+.content button:not(:disabled):is(:hover, :focus-visible) {
+    opacity: 0.7;
     cursor: pointer;
 } 
+
+.content :is(button, input):disabled {
+    opacity: 0.7;
+}
 
 .inputFull {
     position: relative;
@@ -73,6 +76,7 @@
     font-weight: 700;
     left: 2rem;
     top: 50%;
+    z-index: -1;
 }
 
 .inputFull input:is(:focus, :valid) ~ label {

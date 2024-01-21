@@ -13,8 +13,8 @@
     "@reduxjs/toolkit": "^2.0.1",
     "@types/clone-deep": "^4.0.4",
     "clone-deep": "^4.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.0-canary-feed8f3f9-20240118",
+    "react-dom": "^18.3.0-canary-feed8f3f9-20240118",
     "react-icons": "^5.0.0",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.2"
