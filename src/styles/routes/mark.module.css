@@ -41,13 +41,10 @@
 }
 
 .content button:not(:disabled):is(:hover, :focus-visible) {
-    opacity: 0.7;
+    background-color: var(--body-background-color-hover);
+    color: var(--sidebar-color-text);
     cursor: pointer;
 } 
-
-.content :is(button, input):disabled {
-    opacity: 0.7;
-}
 
 .inputFull {
     position: relative;
@@ -79,14 +76,18 @@
     z-index: -1;
 }
 
-.inputFull input:is(:focus, :valid) ~ label {
+.inputFull input:is(:focus, :valid, :disabled) ~ label {
     translate: -2rem -4rem;
 }
 
-.inputFull:has(input:is(:valid, :focus)) {
+.inputFull:has(input:is(:valid, :focus, :disabled)) {
     margin-top: 1.5rem;
 }
 
-.inputFull:has(input:is(:valid, :focus)):first-child {
+.inputFull:has(input:is(:valid, :focus, :disabled)):first-child {
     margin-top: 0;
+}
+
+:is(.inputFull input, .content button):disabled {
+    opacity: 0.7;
 }
