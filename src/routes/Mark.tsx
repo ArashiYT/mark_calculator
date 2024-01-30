@@ -41,7 +41,11 @@ export function MarkPage() {
             if(Weight < 1 || Weight >= 6) throw new ValidError("Weight must be between 1 and 5", WeightRef.current)
 
             //Validate String
-            if(Name.length < 1 || Name.length > 20) throw new ValidError("Name must be at least 1 to 20 characters", NameRef.current)
+            if(!Name.match(/^[A-Z][a-z]{3,}(( - [A-Z][a-z]+)|( [A-Z][a-z]+))$/)) 
+                throw new ValidError("Name must be a valid string", NameRef.current)
+            
+            if(Name.length < 1 || Name.length > 20) 
+                throw new ValidError("Name must be at least 1 to 20 characters", NameRef.current)
 
             const newMarks = [...getMarks(), { name: Name, number: Nr, weight: Weight, uuid: v4() } as TMark]
             

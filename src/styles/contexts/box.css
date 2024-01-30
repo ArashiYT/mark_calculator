@@ -1,0 +1,26 @@
+.box_container {
+    background: var(--body-background-color-hover);
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transition: top 0.1s linear;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    translate: -50% 0;
+    display: flex;
+    height: 100px;
+    width: 500px;
+    z-index: 200;
+    gap: 0.5rem;
+    top: -100px;
+    left: 50%;
+}
+
+.box_container.box_show{
+    top: 0;
+}
+
+.box_info {
+    text-transform: uppercase;
+    font-weight: 700;
+}
